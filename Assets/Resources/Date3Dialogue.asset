@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d954b490ef142448a76318fa6c3dbf9, type: 3}
+  m_Name: Date3Dialogue
+  m_EditorClassIdentifier: 
+  dateDialogue:
+  - girlDialogue: "So, after these few dates\u2026 what do you think of me?"
+    playerChoices:
+    - "You're amazing, I\u2019ve really enjoyed this"
+    - "You\u2019re alright"
+    - "I think you\u2019re funny and sweet"
+    - I feel really comfortable around you
+    choicePoints: 02000000000000000100000001000000
+    girlResponses:
+    - "You\u2019re gonna make me blush"
+    - "Oh\u2026 cool"
+    - "That\u2019s nice to hear"
+    - That means a lot to me
+  - girlDialogue: If this were a movie, what would our ending be?
+    playerChoices:
+    - Happily ever after, obviously
+    - "We don\u2019t talk after the credits"
+    - One of those artsy bittersweet ones
+    - The kind where we stay up talking forever
+    choicePoints: 02000000000000000100000001000000
+    girlResponses:
+    - Aww, cheesy. I like it.
+    - Geez, thanks...
+    - "That\u2019s\u2026 surprisingly deep"
+    - "That\u2019s such a vibe"
+  - girlDialogue: 'Last one: would you want to keep seeing me?'
+    playerChoices:
+    - Yes, 100%
+    - Not really
+    - "Yeah, I\u2019d like that"
+    - "Let\u2019s see where it goes"
+    choicePoints: 02000000000000000100000001000000
+    girlResponses:
+    - "I was hoping you\u2019d say that"
+    - Oh... okay
+    - Same here
+    - I like that approach

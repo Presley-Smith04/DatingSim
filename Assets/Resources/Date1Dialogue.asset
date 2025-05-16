@@ -13,7 +13,40 @@ MonoBehaviour:
   m_Name: Date1Dialogue
   m_EditorClassIdentifier: 
   dateDialogue:
-  - girlDialogue: 
-    playerChoices: []
-    choicePoints: 
-    girlResponses: []
+  - girlDialogue: Hey, thanks for meeting me here. I love cozy cafes like this.
+    playerChoices:
+    - "I don\u2019t like coffee."
+    - "Yeah, it\u2019s okay I guess"
+    - This place is great! Good pick.
+    - Cozy places are the best
+    choicePoints: 00000000010000000200000001000000
+    girlResponses:
+    - "Oh\u2026 not a coffee person, huh?"
+    - Well, maybe next time we can pick something else
+    - I'm glad you like it!
+    - "Right? It\u2019s just nice to relax"
+  - girlDialogue: "So, I recently started learning guitar. It\u2019s been tough but
+      fun!"
+    playerChoices:
+    - Guitar is overrated
+    - "Nice! I\u2019ve always wanted to learn"
+    - "That\u2019s awesome, I play a little too!"
+    - "I respect that, it\u2019s not easy"
+    choicePoints: 00000000010000000200000001000000
+    girlResponses:
+    - Well... everyone has their tastes
+    - You totally should!
+    - No way! Maybe we can jam sometime
+    - "Thank you! It really isn\u2019t."
+  - girlDialogue: I like when people can just be themselves, you know?
+    playerChoices:
+    - I usually act how others want me to
+    - "That\u2019s such a good mindset"
+    - Same here. Being real matters
+    - "It\u2019s hard sometimes, but I try"
+    choicePoints: 00000000010000000200000001000000
+    girlResponses:
+    - Hmm... that sounds exhausting
+    - Thank you, I try to live by that
+    - "Exactly! It\u2019s refreshing"
+    - "Yeah, it\u2019s definitely not easy"

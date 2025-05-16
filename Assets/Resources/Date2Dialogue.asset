@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d954b490ef142448a76318fa6c3dbf9, type: 3}
+  m_Name: Date2Dialogue
+  m_EditorClassIdentifier: 
+  dateDialogue:
+  - girlDialogue: "Thanks for coming out again. I\u2019ve been looking forward to
+      this"
+    playerChoices:
+    - Me too, honestly
+    - I almost forgot, haha
+    - "It\u2019s been a busy week, but I made time"
+    - "Same here! You\u2019ve been on my mind"
+    choicePoints: 02000000000000000100000001000000
+    girlResponses:
+    - "Aww, that\u2019s sweet"
+    - Oh... okay
+    - Well I appreciate it!
+    - "You\u2019re cute, haha"
+  - girlDialogue: "Movies or books \u2014 what\u2019s your escape?"
+    playerChoices:
+    - Books all the way
+    - Definitely movies!
+    - Neither really
+    - Depends on my mood
+    choicePoints: 02000000010000000000000001000000
+    girlResponses:
+    - "You\u2019ve got a good imagination then"
+    - "Same! I\u2019m a book junkie"
+    - Ah, not into that stuff?
+    - "That\u2019s fair!"
+  - girlDialogue: Tell me something random about you
+    playerChoices:
+    - I once got stuck in a tree trying to impress someone
+    - "I\u2019m not that interesting, honestly"
+    - I memorize song lyrics weirdly fast
+    - I love pineapple on pizza
+    choicePoints: 02000000000000000100000001000000
+    girlResponses:
+    - "That\u2019s hilarious!"
+    - "Don\u2019t say that. Everyone\u2019s interesting"
+    - "That\u2019s actually really cool"
+    - Bold take, I respect it!
