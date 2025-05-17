@@ -31,25 +31,36 @@ public class DialogueManager : MonoBehaviour
 
 
 
+    //slider
+    public Slider loveMeterSlider;
+    public Image loveMeterFillImage;
+    public Color lowLoveColor = Color.yellow;
+    public Color highLoveColor = new Color(1f, 0.4f, 0.7f);
+
+
 
 
     void Start()
     {
-        //get date number
-        int dateNumber = PlayerPrefs.GetInt("Date", 1);
-
-        //build dialogue based on date #
-        string name = $"Date{dateNumber}Dialogue";
-
-        //load dialogue
-        currentDialogue = Resources.Load<DialogueData>(name);
+        totalScore = PlayerPrefs.GetInt("Score", 0);
 
         if (currentDialogue == null)
         {
-            Debug.LogError($"Dialogue file '{name}' not found in Resources.");
-            return;
-        }
+            //get date number
+            int dateNumber = PlayerPrefs.GetInt("Date", 1);
 
+            //build dialogue based on date #
+            string name = $"Date{dateNumber}Dialogue";
+
+            //load dialogue
+            currentDialogue = Resources.Load<DialogueData>(name);
+
+            if (currentDialogue == null)
+            {
+                Debug.LogError($"Dialogue file '{name}' not found in Resources.");
+                return;
+            }
+        }
 
         ShowDialogueLine();
     }
@@ -64,6 +75,15 @@ public class DialogueManager : MonoBehaviour
             waitingForSpace = false;
             EnableChoices(true);
         }
+    }
+
+
+
+    void UpdateLoveMeter()
+    {
+        loveMeterSlider.value = totalScore;
+        float normalizedScore = loveMeterSlider.value / loveMeterSlider.maxValue;
+        loveMeterFillImage.color = Color.Lerp(lowLoveColor, highLoveColor, normalizedScore);
     }
 
 
@@ -130,6 +150,8 @@ public class DialogueManager : MonoBehaviour
 
         int points = entry.choicePoints[index];
         totalScore += points;
+
+        UpdateLoveMeter();
 
         // Change her facial expression
         switch (points)
