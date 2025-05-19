@@ -38,10 +38,19 @@ public class DialogueManager : MonoBehaviour
     public Color highLoveColor = new Color(1f, 0.4f, 0.7f);
 
 
+    //sounds
+    public AudioSource audioSource;
+    public AudioClip badSound;
+    public AudioClip goodSound;
+    public AudioClip neutralSound;
+
+
 
 
     void Start()
     {
+        PlayerPrefs.DeleteAll();
+
         totalScore = PlayerPrefs.GetInt("Score", 0);
 
         if (currentDialogue == null)
@@ -134,6 +143,58 @@ public class DialogueManager : MonoBehaviour
 
 
 
+
+    //shake sprite coroutine
+    IEnumerator ShakeSprite(float duration = 0.3f, float magnitude = 0.2f)
+    {
+        Vector3 originalPos = girlRenderer.transform.localPosition;
+
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            float x = Random.Range(-1f, 1f) * magnitude;
+            float y = Random.Range(-1f, 1f) * magnitude;
+
+            girlRenderer.transform.localPosition = originalPos + new Vector3(x, y, 0);
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        girlRenderer.transform.localPosition = originalPos;
+    }
+
+
+
+    //good animation for sprite
+    IEnumerator BounceSprite()
+    {
+        Vector3 originalScale = girlRenderer.transform.localScale;
+        Vector3 targetScale = originalScale * 1.1f;
+
+        float time = 0f;
+        while (time < 0.15f)
+        {
+            girlRenderer.transform.localScale = Vector3.Lerp(originalScale, targetScale, time / 0.15f);
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        time = 0f;
+        while (time < 0.15f)
+        {
+            girlRenderer.transform.localScale = Vector3.Lerp(targetScale, originalScale, time / 0.15f);
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        girlRenderer.transform.localScale = originalScale;
+
+    }
+
+
+
     void EnableChoices(bool enabled)
     {
         //activate choices
@@ -158,12 +219,18 @@ public class DialogueManager : MonoBehaviour
         {
             case 0:
                 girlRenderer.sprite = madSprite;
+                audioSource.PlayOneShot(badSound);
+                StartCoroutine(ShakeSprite());
                 break;
             case 1:
                 girlRenderer.sprite = neutralSprite;
+                audioSource.PlayOneShot(neutralSound);
+
                 break;
             case 2:
                 girlRenderer.sprite = smileSprite;
+                audioSource.PlayOneShot(goodSound);
+                StartCoroutine(BounceSprite());
                 break;
             default:
                 girlRenderer.sprite = neutralSprite;
@@ -216,17 +283,21 @@ public class DialogueManager : MonoBehaviour
             PlayerPrefs.SetInt("Score", totalScore);
             int currentDate = PlayerPrefs.GetInt("Date", 1);
             PlayerPrefs.SetInt("Date", currentDate + 1);
+            Debug.Log("Current Date: " + currentDate);
 
+            yield return new WaitForSeconds(3f);
 
             //next date
-            if(currentDate < 3)
+            if (currentDate < 3)
             {
                 string nextScene = $"Date{currentDate + 1}";
-                UnityEngine.SceneManagement.SceneManager.LoadScene(nextScene);
+                Debug.Log("Loading scene: " + nextScene);
+                SceneManager.LoadScene(nextScene);
             } else
             {
                 //end 
-                UnityEngine.SceneManagement.SceneManager.LoadScene("Ending");
+                Debug.Log("Loading Ending scene");
+                SceneManager.LoadScene("Ending");
 
             }
         }
