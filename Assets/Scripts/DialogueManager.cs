@@ -49,7 +49,6 @@ public class DialogueManager : MonoBehaviour
 
     void Start()
     {
-        PlayerPrefs.DeleteAll();
 
         totalScore = PlayerPrefs.GetInt("Score", 0);
 
@@ -72,6 +71,14 @@ public class DialogueManager : MonoBehaviour
         }
 
         ShowDialogueLine();
+    }
+
+
+    //to reset playerprefs and reset game
+    public void ResetGame()
+    {
+        PlayerPrefs.DeleteAll();
+        SceneManager.LoadScene("Date1");
     }
 
 
