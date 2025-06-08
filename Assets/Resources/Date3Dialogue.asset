@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Date3Dialogue
   m_EditorClassIdentifier: 
   dateDialogue:
-  - girlDialogue: "So, after these few dates\u2026 what do you think of me?"
+  - girlDialogue: 'So, after these few dates, How are you feeling? '
     playerChoices:
     - "You're amazing, I\u2019ve really enjoyed this"
     - "You\u2019re alright"
@@ -21,31 +21,43 @@ MonoBehaviour:
     - I feel really comfortable around you
     choicePoints: 02000000000000000100000001000000
     girlResponses:
-    - "You\u2019re gonna make me blush"
+    - Thats so nice, I've really enjoyed it too!
     - "Oh\u2026 cool"
     - "That\u2019s nice to hear"
     - That means a lot to me
-  - girlDialogue: If this were a movie, what would our ending be?
+  - girlDialogue: What are some things that freak you out
     playerChoices:
-    - Happily ever after, obviously
-    - "We don\u2019t talk after the credits"
-    - One of those artsy bittersweet ones
-    - The kind where we stay up talking forever
-    choicePoints: 02000000000000000100000001000000
+    - Scary movies always freak me out!
+    - I hate birds!
+    - I'm scared of heights
+    - Nothing scares me
+    choicePoints: 01000000020000000100000000000000
     girlResponses:
-    - Aww, cheesy. I like it.
-    - Geez, thanks...
-    - "That\u2019s\u2026 surprisingly deep"
-    - "That\u2019s such a vibe"
-  - girlDialogue: 'Last one: would you want to keep seeing me?'
+    - Same here! They always scare me!
+    - 'Me too! They look so scary! '
+    - Embarrassing!
+    - Brother. Bffr
+  - girlDialogue: Would you rather be inside or outside?
+    playerChoices:
+    - Inside, I hate the sun!
+    - Outside as long as its not too hot or cold!
+    - Im fine with Inside and outside!
+    - Outside, I love the sun!
+    choicePoints: 00000000010000000100000002000000
+    girlResponses:
+    - 'Thats lame '
+    - We should totally go outside!
+    - Me too, but i prefer being in the sun!
+    - I love photosynthesising!
+  - girlDialogue: Do you wanna hangout after this?
     playerChoices:
     - Yes, 100%
-    - Not really
+    - No
     - "Yeah, I\u2019d like that"
     - "Let\u2019s see where it goes"
     choicePoints: 02000000000000000100000001000000
     girlResponses:
-    - "I was hoping you\u2019d say that"
-    - Oh... okay
+    - Ok lets go!!
+    - Okay
     - Same here
-    - I like that approach
+    - What the helly

@@ -46,11 +46,43 @@ public class DialogueManager : MonoBehaviour
 
 
 
+    //intermission UI
+    public GameObject intermissionPanel;
+    public TMP_Text scoreFeedbackText;
+    public Button nextDateButton;
+    public Button quitButton;
+
+
+
+    //phone ui
+    public Button phoneButton;
+    public GameObject phoneMessagePanel;
+    public Image phoneImage;
+    public TMP_Text phoneMessageText;
+    public Sprite bookImage;
+    public Sprite catImage;
+
+
+
+    //phone sound
+    public AudioClip vibrateSound;
+    public AudioSource sfxSource;
+
+    //animation for phone
+    private Coroutine vibrateRoutine;
+
+
+
 
     void Start()
     {
 
         totalScore = PlayerPrefs.GetInt("Score", 0);
+
+        //set inactive
+        phoneButton.gameObject.SetActive(false);
+        phoneMessagePanel.SetActive(false);
+
 
         if (currentDialogue == null)
         {
@@ -69,6 +101,10 @@ public class DialogueManager : MonoBehaviour
                 return;
             }
         }
+
+        //phone listener
+        phoneButton.onClick.AddListener(OpenPhoneMessage);
+
 
         ShowDialogueLine();
     }
@@ -244,6 +280,23 @@ public class DialogueManager : MonoBehaviour
                 break;
         }
 
+
+        //check for message 1;
+        if (PlayerPrefs.GetInt("Date", 1) == 1 && dialogueIndex == 3 && totalScore == 8)
+        {
+            TriggerPhone("Hes so cute isn't he!!!", catImage);
+        }
+
+
+        if (PlayerPrefs.GetInt("Date", 1) == 2 && dialogueIndex == 3 && totalScore == 14)
+        {
+            TriggerPhone("Heres the book I've been reading!", bookImage);
+        }
+
+
+
+
+
         if (typingCoroutine != null)
             StopCoroutine(typingCoroutine);
 
@@ -286,28 +339,115 @@ public class DialogueManager : MonoBehaviour
             ShowDialogueLine();
         } else
         {
-            //set score and increase date
-            PlayerPrefs.SetInt("Score", totalScore);
-            int currentDate = PlayerPrefs.GetInt("Date", 1);
-            PlayerPrefs.SetInt("Date", currentDate + 1);
-            Debug.Log("Current Date: " + currentDate);
-
-            yield return new WaitForSeconds(3f);
-
-            //next date
-            if (currentDate < 3)
-            {
-                string nextScene = $"Date{currentDate + 1}";
-                Debug.Log("Loading scene: " + nextScene);
-                SceneManager.LoadScene(nextScene);
-            } else
-            {
-                //end 
-                Debug.Log("Loading Ending scene");
-                SceneManager.LoadScene("Ending");
-
-            }
+            ShowIntermissionScreen();
         }
+    }
+
+
+
+
+
+    void ShowIntermissionScreen()
+    {
+
+
+        intermissionPanel.SetActive(true);
+
+        int currentDate = PlayerPrefs.GetInt("Date", 1);
+        PlayerPrefs.SetInt("Date", currentDate +  1);
+        PlayerPrefs.SetInt("Score", totalScore);
+
+
+        //score feedback
+        if (totalScore <= 8)
+        {
+            scoreFeedbackText.text = "Little Interest";
+
+        } else if (totalScore <= 16) {
+            scoreFeedbackText.text = "Somewhat Interested";
+
+        } else {
+            scoreFeedbackText.text = "Very interested";
+
+        }
+
+
+        //buttons
+        nextDateButton.onClick.RemoveAllListeners();
+        quitButton.onClick.RemoveAllListeners();
+
+
+        nextDateButton.onClick.AddListener(() =>
+        {
+            string nextScene = $"Date{PlayerPrefs.GetInt("Date", 1)}";
+            SceneManager.LoadScene(nextScene);
+        });
+
+        quitButton.onClick.AddListener(() => Application.Quit());
+
+    }
+
+
+
+
+    void TriggerPhone(string message, Sprite image)
+    {
+        //activate phone
+        phoneMessageText.text = message;
+        phoneImage.sprite = image;
+
+        phoneButton.gameObject.SetActive(true);
+
+
+        //play sound
+        if(sfxSource && vibrateSound)
+        {
+            sfxSource.PlayOneShot(vibrateSound);
+
+        }
+
+        //vibrate animation
+        if (vibrateRoutine != null)
+        {
+            StopCoroutine(vibrateRoutine);
+
+        }
+
+
+        vibrateRoutine = StartCoroutine(VibratePhone());
+    }
+
+
+
+
+    IEnumerator VibratePhone(float duration = 1f, float magnitude = 10f)
+    {
+        RectTransform rect = phoneButton.GetComponent<RectTransform>();
+        Vector3 originalPos = rect.anchoredPosition;
+
+        float elapsed = 0f;
+        while(elapsed < duration)
+        {
+            float x = Random.Range(-1f, 1f) * magnitude;
+            float y = Random.Range(-1f, 1f) * magnitude;
+            rect.anchoredPosition = originalPos + new Vector3(x, y, 0);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        rect.anchoredPosition = originalPos;
+    }
+
+
+    void OpenPhoneMessage()
+    {
+        phoneMessagePanel.SetActive(true);
+        phoneButton.gameObject.SetActive(false);
+    }
+
+
+    public void ClosePhoneMessage()
+    {
+        phoneMessagePanel.SetActive(false);
     }
 
 

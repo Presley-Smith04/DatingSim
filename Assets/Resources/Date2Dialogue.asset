@@ -26,27 +26,39 @@ MonoBehaviour:
     - Oh... okay
     - Well I appreciate it!
     - "You\u2019re cute, haha"
-  - girlDialogue: "Movies or books \u2014 what\u2019s your escape?"
+  - girlDialogue: Do you have any fun facts about you?
     playerChoices:
-    - Books all the way
-    - Definitely movies!
-    - Neither really
-    - Depends on my mood
-    choicePoints: 02000000010000000000000001000000
-    girlResponses:
-    - "You\u2019ve got a good imagination then"
-    - "Same! I\u2019m a book junkie"
-    - Ah, not into that stuff?
-    - "That\u2019s fair!"
-  - girlDialogue: Tell me something random about you
-    playerChoices:
-    - I once got stuck in a tree trying to impress someone
+    - I once broke my arm falling out of a tree
     - "I\u2019m not that interesting, honestly"
-    - I memorize song lyrics weirdly fast
-    - I love pineapple on pizza
-    choicePoints: 02000000000000000100000001000000
+    - I can draw pretty good!
+    - i have a hamster!
+    choicePoints: 01000000000000000100000002000000
     girlResponses:
-    - "That\u2019s hilarious!"
-    - "Don\u2019t say that. Everyone\u2019s interesting"
-    - "That\u2019s actually really cool"
-    - Bold take, I respect it!
+    - Loser!
+    - Okay
+    - I love to draw!!!
+    - I used to have a hamster! His name was Shrimp!
+  - girlDialogue: Movies or books. Which do you prefer?
+    playerChoices:
+    - Neither really...
+    - Definitely books!
+    - Movies! I'm not a big reader
+    - Depends on my mood
+    choicePoints: 00000000020000000100000001000000
+    girlResponses:
+    - Ah, not into that stuff?
+    - Same! Reading is one of my favorite Hobbies
+    - Thats alright, it's not for everyone
+    - "That\u2019s fair!"
+  - girlDialogue: Speaking of Hobbies, What do you do for fun?
+    playerChoices:
+    - I like to go to the Gym
+    - I don't do anything except play Balatro
+    - I like to make music!
+    - I make videogames!
+    choicePoints: 01000000000000000200000001000000
+    girlResponses:
+    - I respect that
+    - 'Thats Embarrassing '
+    - Thats so interesting! You'll have to let me listen to some of your songs!
+    - Me too! We gotta play each others at some point
