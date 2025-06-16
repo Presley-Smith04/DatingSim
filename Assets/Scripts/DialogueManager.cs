@@ -130,7 +130,7 @@ public class DialogueManager : MonoBehaviour
     }
 
 
-
+    //change slider based on success
     void UpdateLoveMeter()
     {
         loveMeterSlider.value = totalScore;
@@ -288,7 +288,7 @@ public class DialogueManager : MonoBehaviour
         }
 
 
-        if (PlayerPrefs.GetInt("Date", 1) == 2 && dialogueIndex == 3 && totalScore == 14)
+        if (PlayerPrefs.GetInt("Date", 2) == 2 && dialogueIndex == 3 && totalScore == 14)
         {
             TriggerPhone("Heres the book I've been reading!", bookImage);
         }
@@ -300,7 +300,7 @@ public class DialogueManager : MonoBehaviour
         if (typingCoroutine != null)
             StopCoroutine(typingCoroutine);
 
-        // Start coroutine to show response and wait for space
+        //start coroutine to show response and wait for space
         typingCoroutine = StartCoroutine(ShowResponseThenNext(entry.girlResponses[index]));
 
         EnableChoices(false);
@@ -349,43 +349,49 @@ public class DialogueManager : MonoBehaviour
 
     void ShowIntermissionScreen()
     {
-
-
         intermissionPanel.SetActive(true);
 
         int currentDate = PlayerPrefs.GetInt("Date", 1);
-        PlayerPrefs.SetInt("Date", currentDate +  1);
         PlayerPrefs.SetInt("Score", totalScore);
-
 
         //score feedback
         if (totalScore <= 8)
         {
             scoreFeedbackText.text = "Little Interest";
-
-        } else if (totalScore <= 16) {
+        }
+        else if (totalScore <= 16)
+        {
             scoreFeedbackText.text = "Somewhat Interested";
-
-        } else {
-            scoreFeedbackText.text = "Very interested";
-
+        }
+        else
+        {
+            scoreFeedbackText.text = "Very Interested";
         }
 
-
-        //buttons
         nextDateButton.onClick.RemoveAllListeners();
         quitButton.onClick.RemoveAllListeners();
 
-
-        nextDateButton.onClick.AddListener(() =>
+        //if currentDate is the last one, go to ending scene
+        if (currentDate >= 3)
         {
-            string nextScene = $"Date{PlayerPrefs.GetInt("Date", 1)}";
-            SceneManager.LoadScene(nextScene);
-        });
+            nextDateButton.onClick.AddListener(() =>
+            {
+                SceneManager.LoadScene("Ending");
+            });
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Date", currentDate + 1);
+            nextDateButton.onClick.AddListener(() =>
+            {
+                string nextScene = $"Date{PlayerPrefs.GetInt("Date", 1)}";
+                SceneManager.LoadScene(nextScene);
+            });
+        }
 
         quitButton.onClick.AddListener(() => Application.Quit());
-
     }
+
 
 
 

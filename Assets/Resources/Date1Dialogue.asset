@@ -23,9 +23,9 @@ MonoBehaviour:
     girlResponses:
     - "Oh\u2026 not a coffee person, huh?"
     - Well, maybe next time we can pick something else
-    - I'm glad you like it!
-    - "Right? It\u2019s just nice to relax"
-  - girlDialogue: What do you do for work?
+    - I'm glad you like it! It's one of my favorite spots!
+    - "Right? It\u2019s just nice to relax and enjoy it"
+  - girlDialogue: What have you been doing for work?
     playerChoices:
     - I'm a professional discord moderator
     - Nowhere. I'm Unemployed
@@ -37,7 +37,7 @@ MonoBehaviour:
     - Ew Gross
     - Get your bag queen
     - Thats awesome, I just finished my Game design and Development Degree
-  - girlDialogue: Do you like Country Music?
+  - girlDialogue: How do you feel about Country Music?
     playerChoices:
     - I've listened and its not bad
     - I love it, We should go Line Dancing
@@ -45,10 +45,10 @@ MonoBehaviour:
     - I haven't heard much. Any reccomendations?
     choicePoints: 01000000020000000000000001000000
     girlResponses:
-    - Well... everyone has their tastes
+    - You should definetly give it a chance. Start with Ella Langely and Morgan Wallen
     - Absolutely!! We need to make plans to go sometime!
     - Well... everyone has their tastes.
-    - You should listen to Morgan Wallen!
+    - You should listen to Ella Langely!!!
   - girlDialogue: Ok now for a REALLY important Question. Do you like cats or dogs?
     playerChoices:
     - I can't choose, i like both!
@@ -61,3 +61,16 @@ MonoBehaviour:
     - I love cats. You should see my Cat tortilla!!
     - 'Thats Embarrassing '
     - Nothing wrong with that at all! Both are cute!
+  - girlDialogue: This last question is very serious.... If you were a fruit, what
+      fruit would you be?
+    playerChoices:
+    - I think i'd be a Watermelon
+    - I'd be a Zucchini
+    - Uhh, idk
+    - I'd definetly be a Banana
+    choicePoints: 01000000010000000000000002000000
+    girlResponses:
+    - That's an interesting choice, personally I hate Watermelon
+    - That's not a Fruit, but I appreciate the effort
+    - You're Lame...
+    - Thats cute, and thats exactly what I'd pick for you

@@ -21,10 +21,10 @@ MonoBehaviour:
     - I feel really comfortable around you
     choicePoints: 02000000000000000100000001000000
     girlResponses:
-    - Thats so nice, I've really enjoyed it too!
+    - Thats so nice, I've had fun hanging out with you too!
     - "Oh\u2026 cool"
-    - "That\u2019s nice to hear"
-    - That means a lot to me
+    - Aw thank you. That's really nice to hear
+    - That means a lot to me. Thank you so much
   - girlDialogue: What are some things that freak you out
     playerChoices:
     - Scary movies always freak me out!
@@ -33,8 +33,8 @@ MonoBehaviour:
     - Nothing scares me
     choicePoints: 01000000020000000100000000000000
     girlResponses:
-    - Same here! They always scare me!
-    - 'Me too! They look so scary! '
+    - Same here! They always scare me, I hate scary things!
+    - Me too! They look so weird and just make me so uncomforable!
     - Embarrassing!
     - Brother. Bffr
   - girlDialogue: Would you rather be inside or outside?
@@ -46,9 +46,21 @@ MonoBehaviour:
     choicePoints: 00000000010000000100000002000000
     girlResponses:
     - 'Thats lame '
-    - We should totally go outside!
-    - Me too, but i prefer being in the sun!
-    - I love photosynthesising!
+    - I hate being cold, but if it's nice I love outside
+    - Me too, but i prefer being in the sun! It's so refreshing
+    - Me too! I love sitting in the sun and photosynthesising!
+  - girlDialogue: How do you feel about arts and crafts?
+    playerChoices:
+    - I think it's fun, I wanna do more
+    - I love it. Do you wanna craft together?
+    - I'd rather do something else
+    - I hate Crafting
+    choicePoints: 01000000020000000000000000000000
+    girlResponses:
+    - We could craft sometime. We could start simple too!
+    - Me too! My favorites are sewing and making jewlery!!
+    - You should try it sometime. Maybe you'd find that you like it
+    - Thats so lame and not cool of you
   - girlDialogue: Do you wanna hangout after this?
     playerChoices:
     - Yes, 100%

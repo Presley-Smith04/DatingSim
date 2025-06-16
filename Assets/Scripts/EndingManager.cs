@@ -59,14 +59,14 @@ public class EndingManager : MonoBehaviour
         endingImage.rectTransform.localScale = startScale;
 
 
-        if (score <= 12)
+        if (score <= 19)
         {
             endingImage.sprite = ghostedSprite;
             audioSource.clip = ghostedMusic;
             ghostedText.gameObject.SetActive(true);
             StartCoroutine(FadeIn(ghostedText));
         }
-        else if (score <= 19)
+        else if (score <= 25)
         {
             endingImage.sprite = neutralSprite;
             audioSource.clip = neutralMusic;

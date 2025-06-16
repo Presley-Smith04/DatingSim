@@ -4743,8 +4743,8 @@ MonoBehaviour:
   highLoveColor: {r: 1, g: 0.4, b: 0.7, a: 1}
   audioSource: {fileID: 842678474}
   badSound: {fileID: 8300000, guid: 9fd83debb4ba56e4bb058ffd8bbf1ae1, type: 3}
-  goodSound: {fileID: 8300000, guid: 717cda3fdb7d9d141908b231fd3a63fe, type: 3}
-  neutralSound: {fileID: 8300000, guid: ddacbdccc43e2af4fbc36c6c6628d5a6, type: 3}
+  goodSound: {fileID: 8300000, guid: ddacbdccc43e2af4fbc36c6c6628d5a6, type: 3}
+  neutralSound: {fileID: 8300000, guid: 717cda3fdb7d9d141908b231fd3a63fe, type: 3}
   intermissionPanel: {fileID: 1518112455}
   scoreFeedbackText: {fileID: 163317895}
   nextDateButton: {fileID: 640932126}

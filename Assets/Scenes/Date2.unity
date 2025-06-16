@@ -3629,8 +3629,8 @@ MonoBehaviour:
   highLoveColor: {r: 1, g: 0.4, b: 0.7, a: 1}
   audioSource: {fileID: 543018104}
   badSound: {fileID: 8300000, guid: 9fd83debb4ba56e4bb058ffd8bbf1ae1, type: 3}
-  goodSound: {fileID: 8300000, guid: 717cda3fdb7d9d141908b231fd3a63fe, type: 3}
-  neutralSound: {fileID: 8300000, guid: ddacbdccc43e2af4fbc36c6c6628d5a6, type: 3}
+  goodSound: {fileID: 8300000, guid: ddacbdccc43e2af4fbc36c6c6628d5a6, type: 3}
+  neutralSound: {fileID: 8300000, guid: 717cda3fdb7d9d141908b231fd3a63fe, type: 3}
   intermissionPanel: {fileID: 425859095}
   scoreFeedbackText: {fileID: 1661929583}
   nextDateButton: {fileID: 2019198799}
@@ -5217,8 +5217,8 @@ Transform:
   m_GameObject: {fileID: 2069756646}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.56, y: 0.13, z: 0}
-  m_LocalScale: {x: 0.9762, y: 0.81616026, z: 1}
+  m_LocalPosition: {x: -0.5822, y: 0.13, z: 0}
+  m_LocalScale: {x: 0.98961884, y: 0.81616026, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
