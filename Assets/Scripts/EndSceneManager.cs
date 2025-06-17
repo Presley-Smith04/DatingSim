@@ -18,8 +18,8 @@ public class EndSceneManager : MonoBehaviour
             return;
         }
 
-        if (score <= 4) resultText.text = "You got ghosted.";
-        else if (score <= 8) resultText.text = "You're just friends.";
-        else resultText.text = "You're dating now!";
+        if (score <= 19) resultText.text = "You got ghosted.";
+        else if (score <= 25) resultText.text = "You're just friends.";
+        else resultText.text = "Dating";
     }
 }
