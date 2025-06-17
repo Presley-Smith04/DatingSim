@@ -25,6 +25,12 @@ public class StartMenuManager : MonoBehaviour
     }
 
 
+    public void OpenLink(string url)
+    {
+        Application.OpenURL(url);
+    }
+
+
     IEnumerator StartDelay()
     {
         if(audioSource != null && startSound != null)

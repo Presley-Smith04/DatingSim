@@ -63,6 +63,19 @@ public class DialogueManager : MonoBehaviour
     public Sprite catImage;
 
 
+    //slider sprites
+    public Sprite madFaceSprite;
+    public Sprite neutralFaceSprite;
+    public Sprite happyFaceSprite;
+    public Image sliderHandleImage;
+
+
+
+    //slider animation curve
+    public AnimationCurve smoothCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
+    public float animationDuration = 0.5f;
+
+
 
     //phone sound
     public AudioClip vibrateSound;
@@ -133,9 +146,87 @@ public class DialogueManager : MonoBehaviour
     //change slider based on success
     void UpdateLoveMeter()
     {
-        loveMeterSlider.value = totalScore;
+        StartCoroutine(AnimateSliderValue(loveMeterSlider.value, totalScore));
         float normalizedScore = loveMeterSlider.value / loveMeterSlider.maxValue;
+
+        //update fill color
         loveMeterFillImage.color = Color.Lerp(lowLoveColor, highLoveColor, normalizedScore);
+
+        //update face sprite
+        if (normalizedScore <= 0.33f)
+        {
+            sliderHandleImage.sprite = madFaceSprite;
+        }
+        else if (normalizedScore <= 0.66f)
+        {
+            sliderHandleImage.sprite = neutralFaceSprite;
+        }
+        else
+        {
+            sliderHandleImage.sprite = happyFaceSprite;
+        }
+
+        //start animation
+        StartCoroutine(BounceSliderHandle());
+    }
+
+
+
+    //smoother slider animations
+    IEnumerator AnimateSliderValue(float startValue, float endValue)
+    {
+        float timeElapsed = 0f;
+
+        while (timeElapsed < animationDuration)
+        {
+            float t = timeElapsed / animationDuration;
+            float curvedT = smoothCurve.Evaluate(t);
+            loveMeterSlider.value = Mathf.Lerp(startValue, endValue, curvedT);
+
+            float normalizedScore = loveMeterSlider.value / loveMeterSlider.maxValue;
+            loveMeterFillImage.color = Color.Lerp(lowLoveColor, highLoveColor, normalizedScore);
+
+            // Update face during animation
+            if (normalizedScore <= 0.33f)
+                sliderHandleImage.sprite = madFaceSprite;
+            else if (normalizedScore <= 0.66f)
+                sliderHandleImage.sprite = neutralFaceSprite;
+            else
+                sliderHandleImage.sprite = happyFaceSprite;
+
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        loveMeterSlider.value = endValue; // Snap to final value
+    }
+
+
+    //slider animation
+    IEnumerator BounceSliderHandle()
+    {
+        Vector3 originalScale = sliderHandleImage.rectTransform.localScale;
+        Vector3 enlargedScale = originalScale * 1.2f;
+
+        float duration = 0.1f;
+        float time = 0f;
+
+        while(time < duration)
+        {
+            sliderHandleImage.rectTransform.localScale = Vector3.Lerp(originalScale, enlargedScale, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        time = 0f;
+        while (time < duration)
+        {
+            sliderHandleImage.rectTransform.localScale = Vector3.Lerp(enlargedScale, originalScale, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        sliderHandleImage.rectTransform.localScale = originalScale;
     }
 
 

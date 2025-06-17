@@ -164,7 +164,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -178,13 +178,13 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 288758225}
   m_FillRect: {fileID: 1853227135}
   m_HandleRect: {fileID: 288758223}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 20
+  m_MaxValue: 30
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -3641,6 +3641,35 @@ MonoBehaviour:
   phoneMessageText: {fileID: 2013681479}
   bookImage: {fileID: 21300000, guid: 5a5732145c1382a47bcd49b178e6e12a, type: 3}
   catImage: {fileID: 21300000, guid: 2caa8919cbbed614e83796fe876bbe27, type: 3}
+  madFaceSprite: {fileID: 21300000, guid: 40e0508754a64f34ba26683cfbcf89bb, type: 3}
+  neutralFaceSprite: {fileID: 21300000, guid: cbf0f3cb5b08e584590fbca2a97d56b5, type: 3}
+  happyFaceSprite: {fileID: 21300000, guid: 38952f88b34ed4341a54186e3798438f, type: 3}
+  sliderHandleImage: {fileID: 288758225}
+  smoothCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  animationDuration: 0.5
   vibrateSound: {fileID: 8300000, guid: 0209b32d36dd961409a029ace0bc4697, type: 3}
   sfxSource: {fileID: 543018104}
 --- !u!1 &1624341779
